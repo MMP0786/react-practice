@@ -22,8 +22,8 @@ function Main() {
         <button onClick={()=>navigate(+1)}>Go Ahead</button>
         <Routes>
             <Route path='/' element={<Home/>} >
-              <Route path='user/1' element={<User/>}/>
-              <Route path='user/2' element={<User/>}/>
+              <Route path='user/:id' element={<User/>}/>
+              {/* <Route path='user/2' element={<User/>}/> */}
             </Route>
             <Route path='/Products' element={<Products/>}>
               <Route path='shirts' element={<Shirts/>}></Route>
