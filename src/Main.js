@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import Home from './Comp/Home'
 import Products from './Comp/Products'
-import Contact from './Comp/Contact'
+// import Contact from './Comp/Contact'
 import Error from './Comp/Error'
 import Nav from './Nav'
 import Shirts from './Comp/Shirts'
 import Paints from './Comp/Paints'
 import Search from './Comp/Search'
 import User from './Comp/User'
+import AutoCounter from './AutoCounter/AutoCounter'
+const Contact = lazy(()=>import('./Comp/Contact'))
 
 function Main() {
   const navigate = useNavigate();
@@ -30,9 +32,12 @@ function Main() {
               <Route path='paints' element={<Paints/>}></Route>
               <Route index element={<Shirts/>} />
             </Route>
-            <Route path='/contact' element={<Contact/>} />
+            {/* <Suspense fallback={<div>Loading...</div>}> */}
+              <Route path='/contact' element={<Contact/>} />
+            {/* </Suspense> */}
             <Route path='*' element={<Error/>} />
             <Route path='search' element={<Search/>} />
+            <Route path='auto' element={<AutoCounter/>} />
         </Routes>
     </div>
   )
