@@ -19,6 +19,7 @@ function Nav() {
         <Link style={navStyle} to={"/contact"}>Contact</Link>
         <Link style={navStyle} to={"/search"}>Search</Link>
         <Link style={navStyle} to={"/auto"}>AutoCounter</Link>
+        <Link style={navStyle} to={"/todo"}>Task</Link>
     </div>
   )
 }

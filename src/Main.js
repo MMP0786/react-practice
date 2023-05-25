@@ -10,6 +10,8 @@ import Paints from './Comp/Paints'
 import Search from './Comp/Search'
 import User from './Comp/User'
 import AutoCounter from './AutoCounter/AutoCounter'
+import Task from './Todo/Task'
+import Todo from './Todo/Todo'
 const Contact = lazy(()=>import('./Comp/Contact'))
 
 function Main() {
@@ -38,6 +40,7 @@ function Main() {
             <Route path='*' element={<Error/>} />
             <Route path='search' element={<Search/>} />
             <Route path='auto' element={<AutoCounter/>} />
+            <Route path='todo' element={<Todo/>} />
         </Routes>
     </div>
   )
