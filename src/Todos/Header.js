@@ -6,7 +6,6 @@ const style = {
     justifyContent:"space-around",
     alignItem: "center",
     padding:"30px",
-    // height: "40px"
     background:"rgb(203, 209, 204)"
 }
 export default class Header extends Component {
@@ -17,7 +16,7 @@ export default class Header extends Component {
     return (
        
       <div style={style}>
-         <TextField id="outlined-basic" label="Search Todo" variant="outlined" />
+         <TextField id="outlined-basic" onChange={(e)=>{this.props.handleSearch(e.target.value)}} label="Search Todo" variant="outlined" />
          <div style={{marginTop:"13px",color:'rgb(235, 89, 155)', cursor:"pointer"}}><AddIcon onClick= {modalStatus}/></div>
     </div>
     )

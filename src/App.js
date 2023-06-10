@@ -29,12 +29,21 @@ export default class App extends Component {
                 description: "This is todo1 description"
             }
         ],
-        modal: false
+        modal: false,
+        textSearch:"",
+        filterArr:[]
       }
     }
 
     
     render() {
+
+      const handleSearch = (text)=>{
+        const temparr = this.state.arr.filter(ele=> ele.title.toLowerCase().includes(text.toLowerCase()))
+        this.setState({filterArr: temparr});
+        this.setState({textSearch:text})
+        console.log(text, temparr)
+      }
       const handleClick =(status)=>{
         this.setState({modal:status})
       }
@@ -91,8 +100,8 @@ export default class App extends Component {
       // console.log(this.state.currentTodo1)
       return (
       <div>
-        <Header handleClick = {handleClick}/> 
-        <Main todos = {this.state.arr}  handleClick={handleClick}  handleDelete={ handleDelete}  
+        <Header handleClick = {handleClick} handleSearch={handleSearch}/> 
+        <Main todos = {this.state.textSearch ? this.state.filterArr :this.state.arr}  handleClick={handleClick}  handleDelete={ handleDelete}  
         handleEdit ={handleEdit}
       />
 
