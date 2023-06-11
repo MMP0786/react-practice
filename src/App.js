@@ -9,40 +9,33 @@ export default class App extends Component {
       super(props)
     
       this.state = {
-        arr : [
-            {
-                id: uuidv4(),
-                title: "Todo 1",
-                status: true,
-                description: "This is todo1 description"
-            },
-            {
-                id: uuidv4(),
-                title: "Todo 2",
-                status: true,
-                description: "This is todo1 description"
-            },
-            {
-                id: uuidv4(),
-                title: "Todo 3",
-                status: true,
-                description: "This is todo1 description"
-            }
-        ],
+        arr : [],
         modal: false,
         textSearch:"",
         filterArr:[]
       }
     }
 
-    
+    componentDidMount(){
+      let arr1 = JSON.parse(localStorage.getItem("todos"))
+      this.setState({arr:arr1})
+    }
+    componentDidUpdate(){
+      localStorage.setItem("todos", JSON.stringify(this.state.arr))
+    }
     render() {
+      
 
       const handleSearch = (text)=>{
-        const temparr = this.state.arr.filter(ele=> ele.title.toLowerCase().includes(text.toLowerCase()))
-        this.setState({filterArr: temparr});
-        this.setState({textSearch:text})
-        console.log(text, temparr)
+        if(this.state.arr.length>0){
+          console.log(this.state.arr)
+          const temparr = this.state.arr.filter(ele=> ele.title.toLowerCase().includes(text.toLowerCase()))
+          this.setState({filterArr: temparr});
+          this.setState({textSearch:text})
+          // console.log(text, temparr)
+          
+        }
+          
       }
       const handleClick =(status)=>{
         this.setState({modal:status})

@@ -33,9 +33,9 @@ export default class Modal extends Component {
 
   render() {
     // const modalStatus =()=>{
-      //   this.props.handleAddTodo(this.state.title, this.state.description, this.state.status);
-      //   console.log(this.state);
-      //   }
+    //     this.props.handleAddTodo(this.state.title, this.state.description, this.state.status);
+    //     console.log(this.state);
+    //     }
       const modalStatus1 =()=>{
         this.props.handleClick(false);
       }
@@ -45,7 +45,7 @@ export default class Modal extends Component {
           
           console.log("first")
         }else{
-          this.props.handleAddTodo(this.state.id, this.state.title, this.state.description, this.state.status)
+          this.props.handleAddTodo(this.state.title, this.state.description, this.state.status)
           console.log("second")
         }
         this.props.handleClick(false);

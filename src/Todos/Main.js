@@ -9,7 +9,7 @@ export default class Main extends Component {
     return (
       <div style={{display:"flex", justifyContent:"space-around", flexWrap:"wrap", minMargin:"20px"}}>
         
-          {this.props.todos.map((todos, index)=>{
+          { (this.props.todos.length)&&this.props.todos.map((todos, index)=>{
             return (
               <div style={{border:"1px solid", width:"150px", height:"200px", textAlign:"center", marginTop:"20px" }} key={index}>
               <h3>{todos.title}</h3>
